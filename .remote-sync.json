@@ -1,0 +1,14 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "melancia.syslunch.xyz",
+  "target": "/",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "jppolles_melancia",
+  "password": "c123456*",
+  "transport": "ftp"
+}
