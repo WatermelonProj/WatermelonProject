@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nascimentoUsuario', 'ativoUsuario', 'permissaoUsuario'
     ];
 
     /**
@@ -24,13 +24,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
 
     public function receita() {
-      return $this->hasMany("App\Receita", 'idUsuario', 'idUsuario');
+      return $this->hasMany("App\Receita", 'id', 'idUsuario');
     }
     public function cardapio() {
-      return $this->hasMany("App\Cardapio","idUsuario", "idUsuario");
+      return $this->hasMany("App\Cardapio","id", "idUsuario");
     }
 }
