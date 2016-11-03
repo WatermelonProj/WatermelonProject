@@ -20,7 +20,7 @@ class CreateReceitaTable extends Migration
             $table->boolean('ativoReceita');
             $table->timestamps();
             $table->integer('idUsuario')->unsigned();
-            $table->foreign('idUsuario')->references('idUsuario')->on("user");
+            $table->foreign('idUsuario')->references('id')->on("users");
         });
     }
 

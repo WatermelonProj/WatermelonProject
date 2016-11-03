@@ -19,7 +19,7 @@ class CreateCardapioTable extends Migration
             $table->integer('idUsuario')->unsigned();
             $table->timestamps();
             $table->foreign('idFEtaria')->references("idFEtaria")->on("faixaEtaria");
-            $table->foreign('idUsuario')->references("idUsuario")->on("user");
+            $table->foreign('idUsuario')->references("id")->on("users");
         });
     }
 
