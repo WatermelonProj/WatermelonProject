@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DateTime;
 
 class RegisterController extends Controller
 {
@@ -51,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'nascimentoUsuario' => 'required|date_format:d/m/Y'
         ]);
     }
 
@@ -62,10 +64,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $myDateTime = DateTime::createFromFormat('d/m/Y', $data['nascimentoUsuario']);
+        $newDateString = $myDateTime->format('Y-m-d');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'nascimentoUsuario' => $newDateString,
+            'ativoUsuario' => 0,
+            'permissaoUsuario' => 0
         ]);
     }
 }
